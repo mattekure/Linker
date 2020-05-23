@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<root>
+	<windowclass name="LinkerWindow">
+		<frame>utilitybox2</frame>
+		<placement>
+			<size width="400" height="300" />
+		</placement>
+		<sizelimits>
+			<dynamic />
+			<minimum width="400" height="300" />
+		</sizelimits>
+		<sheetdata>
+			<windowtitlebar name="title">
+				<resource>linker_title</resource>
+			</windowtitlebar>
+			<anchor_title_utilitybox name="contentanchor" />
+			<resize_utilitybox2 />
+			<close_utilitybox2 />
+			<label name="linker_title">
+				<anchored height="30">
+					<left parent="contentanchor" anchor="left" offset="10" />
+					<right parent="contentanchor" anchor="right" offset="-10" />
+					<top parent="contentanchor" anchor="top" offset="10" />
+				</anchored>
+				<static textres="linker_label_title" />
+				<multilinespacing>14</multilinespacing>
+				<center />
+			</label>
+			<stringu name="linkerString">
+				<script>
+					function onValueChanged()
+							DB.setValue("MKLinker.linkText", "string", getValue());
+					end
+					function onInit()
+						setValue(DB.getValue("MKLinker.linkText"));
+					end
+				</script>
+				<center />
+				<anchored to="linker_title" position="insidetop" offset="0,50" height="20" />
+			</stringu>
+			<button_text name="MKLinkerButton">
+				<anchored height="20">
+					<left parent="contentanchor" anchor="left" offset="20" />
+					<right parent="contentanchor" anchor="right" offset="-20" />
+					<top parent="linker_title" anchor="bottom" offset="75" />				
+				</anchored>
+				<state textres="linker_button_convert" />
+				<tooltip textres="linker_button_convert" />
+				<script>
+					function onButtonPress()
+						MKLinker.mkCreateLink();
+					end
+				</script>			
+			</button_text>
+		</sheetdata>
+	</windowclass>
+</root>

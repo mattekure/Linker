@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<root>
+	<!-- Titles -->
+	<string name="linker_title">Linker</string>
+	
+	<!-- Tooltips -->
+	<string name="linker_tooltip_button_convert">Converts the string into a link in the chat.</string>
+	
+	<!-- Labels -->
+	<string name="linker_label_title">Input the URL or text to become a link.</string>
+	<string name="linker_tooltip_stack_button">Linker</string>
+	<!-- Buttons -->
+	<string name="linker_button_convert">Create Link</string>
+</root>
