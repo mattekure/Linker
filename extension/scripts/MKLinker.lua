@@ -12,14 +12,14 @@ local aCoreDesktopStack = {
 
 
 function onInit()
-	bBetterMenusLoaded = 0;
-	if MenuManager then
-		MenuManager.addMenuItem("LinkerWindow", "", "linker_button_convert", "Linker");
-	else
-		DesktopManager.registerStackShortcuts(aCoreDesktopStack["linker"]);
+	if User.isHost() then
+		if MenuManager then
+			MenuManager.addMenuItem("LinkerWindow", "", "linker_button_convert", "Linker");
+		else
+			DesktopManager.registerStackShortcuts(aCoreDesktopStack["linker"]);
+		end
+		DB.setValue("MKLinker.linkText", "string", "Enter URI");
 	end
-	
-	DB.setValue("MKLinker.linkText", "string", "Enter URI");
 end
 
 
