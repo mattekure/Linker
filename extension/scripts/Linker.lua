@@ -18,18 +18,18 @@ function onInit()
 		else
 			DesktopManager.registerStackShortcuts(aCoreDesktopStack["linker"]);
 		end
-		DB.setValue("MKLinker.linkText", "string", "Enter URI");
+		DB.setValue("Linker.linkText", "string", "Enter URI");
 	end
 end
 
 
-function mkCreateLink()
+function CreateLink(sLink)
+Debug.chat(sLink)
 	local msg = {
 		text="(LINK)",
 		shortcuts={
-			{ description="testShortcut", class="url", recordname=DB.getValue("MKLinker.linkText") }
+			{ description="testShortcut", class="url", recordname=DB.getValue("Linker.linkText") }
 		}
-	}
-	
+	}	
 	Comm.addChatMessage(msg);
 end

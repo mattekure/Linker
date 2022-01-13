@@ -30,10 +30,10 @@
 			<stringu name="linkerString">
 				<script>
 					function onValueChanged()
-							DB.setValue("MKLinker.linkText", "string", getValue());
+							DB.setValue("Linker.linkText", "string", getValue());
 					end
 					function onInit()
-						setValue(DB.getValue("MKLinker.linkText"));
+						setValue(DB.getValue("Linker.linkText"));
 					end
 				</script>
 				<center />
@@ -49,7 +49,7 @@
 				<tooltip textres="linker_button_convert" />
 				<script>
 					function onButtonPress()
-						MKLinker.mkCreateLink();
+						Linker.CreateLink(linkerString.getValue());
 					end
 				</script>			
 			</button_text>
