@@ -17,9 +17,5 @@
         <includefile source="linker.xml" />
         <script name="LinkerManager" file="manager_linker.lua" />
         <string name="linker_window_title">Linker</string>
-        <string name="linker_linkText_EmptyText">Input the URL or text to become a link.</string>
-        <string name="linker_button_convert_Tooltip">onverts the string into a link in the chat.</string>
-        <string name="linker_button_convert_ButtonCaption">Create Link</string>
-        <string name="linker_linkName_EmptyText">Enter name of link target</string>
     </base>
 </root>
