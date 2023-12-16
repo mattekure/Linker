@@ -1,20 +1,25 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <root version="3.0">
-  <announcement text="Linker v1.3" />
-  <properties>
-    <name>Linker</name>
-    <version>1.3</version>
-    <author>mattekure</author>
-    <description>Adds a window to create links for URLs or to files</description>
-  </properties>
-  <base>
-    <includefile source="linker.xml" />
-    <script name="LinkerManager" file="LinkerManager.lua" />
-    <icon name="linker_button_icon_down" file="linker_button_down.png" />
-    <icon name="linker_button_icon_up" file="linker_button_up.png" />
-    <includefile source="strings_Linker.xml" />
-    <script name="RulesetWizardDiceRoller" file="rulesetwizard/RulesetWizardDiceRoller.lua" />
-    <script name="RulesetWizard" file="rulesetwizard/RulesetWizard.lua" />
-    <includefile source="rulesetwizard/rswcombobox.xml" />
-  </base>
+    <announcement>
+        <text>Linker v1.4\rCreated by mattekure</text>
+        <font>systemfont</font>
+        <icon>Mattekure_Logo</icon>
+    </announcement>
+    <properties>
+        <name>Feature: Linker</name>
+        <version>1.4</version>
+        <author>mattekure</author>
+        <description>Adds a window to create links for URLs or to files</description>
+    </properties>
+    <base>
+        <icon name="Mattekure_Logo" file="Mattekure_Logo.png" />
+        <icon name="linker_button" file="crossed-chains.png" />
+        <includefile source="linker.xml" />
+        <script name="LinkerManager" file="manager_linker.lua" />
+        <string name="linker_window_title">Linker</string>
+        <string name="linker_linkText_EmptyText">Input the URL or text to become a link.</string>
+        <string name="linker_button_convert_Tooltip">onverts the string into a link in the chat.</string>
+        <string name="linker_button_convert_ButtonCaption">Create Link</string>
+        <string name="linker_linkName_EmptyText">Enter name of link target</string>
+    </base>
 </root>

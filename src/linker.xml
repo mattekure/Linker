@@ -1,52 +1,57 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <root>
-  <windowclass name="linker">
-    <frame>fielddark</frame>
-    <placement>
-      <size height="160" width="350" />
-    </placement>
-    <sheetdata>
-      <stringcontrol name="title">
-        <bounds>10,15,-10,20</bounds>
-        <center />
-        <static textres="linker_title_LabelCaption" />
-        <readonly />
-      </stringcontrol>
-      <stringfield name="linkText">
-        <bounds>10,80,330,20</bounds>
-        <empty textres="linker_linkText_EmptyText" />
-        <lineoffset default="on">2</lineoffset>
-      </stringfield>
-      <buttoncontrol name="button_convert">
-        <frame>
-          <name>buttonup</name>
-        </frame>
-        <bounds>125,110,100,30</bounds>
-        <tooltip textres="linker_button_convert_Tooltip" />
-        <state textres="linker_button_convert_ButtonCaption" />
-        <stateframe>
-          <pressed name="buttonup" offset="-1,-1,-1,-1" nobaseframe="true" />
-        </stateframe>
-        <font>button-white</font>
-        <script>
+    <windowclass name="linker">
+        <frame>utilitybox</frame>
+        <sizelimits>
+            <minimum width="350" height="240" />
+            <dynamic />
+        </sizelimits>
+        <sheetdata>
+            <windowtitlebar_utilitybox name="title" />
+            <windowmenubar_utilitybox name="menubar" />
+            <resize_utilitybox />
+            <anchor_content_utilitybox_top />
+            <anchor_content_utilitybox_bottom />
+            <sub_content_framed_groupbox name="sub_linker">
+                <class>sub_linker</class>
+            </sub_content_framed_groupbox>
+       </sheetdata>
+    </windowclass>
+    <windowclass name="sub_linker">
+        <sheetdata>
+            <anchor_content_top />
+            <anchor_content_bottom />
 
-function onButtonPress()
-	local msg = {
-		text=window.linkName.getValue(),
-		shortcuts={
-			{ description=window.linkName.getValue(), class="url", recordname=window.linkText.getValue() }
-		}
-	}	
-	Comm.addChatMessage(msg);    
-end
+             <stringc_content_noframe_static_top name="headerName">
+                <static text="Link Title" />
+                <center />
+             </stringc_content_noframe_static_top>
+            <stringc_content_top name="linkName" />
+            
+            <stringc_content_noframe_static_top name="headerURL">
+                <static text="Link URL" />
+                <center />
+            </stringc_content_noframe_static_top>
+            <stringc_content_top name="linkURL" />
 
-</script>
-      </buttoncontrol>
-      <stringfield name="linkName">
-        <bounds>10,50,330,20</bounds>
-        <empty textres="linker_linkName_EmptyText" />
-        <lineoffset default="on">2</lineoffset>
-      </stringfield>
-    </sheetdata>
-  </windowclass>
+            <button_text_content_center_top name="genLink">
+                <text>Create Link</text>
+                <script>
+                    function onButtonPress()
+                        local msg = {
+                            text=window.linkName.getValue(),
+                            shortcuts = { 
+                                {
+                                    description=window.linkName.getValue(),
+                                    class="url",
+                                    recordname=window.linkURL.getValue()
+                                }
+                            }
+                        }
+                        Comm.addChatMessage(msg);
+                    end
+                </script>
+            </button_text_content_center_top>
+        </sheetdata>
+    </windowclass>
 </root>
