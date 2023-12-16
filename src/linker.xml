@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root>
+  <windowclass name="linker">
+    <frame>fielddark</frame>
+    <placement>
+      <size height="160" width="350" />
+    </placement>
+    <sheetdata>
+      <stringcontrol name="title">
+        <bounds>10,15,-10,20</bounds>
+        <center />
+        <static textres="linker_title_LabelCaption" />
+        <readonly />
+      </stringcontrol>
+      <stringfield name="linkText">
+        <bounds>10,80,330,20</bounds>
+        <empty textres="linker_linkText_EmptyText" />
+        <lineoffset default="on">2</lineoffset>
+      </stringfield>
+      <buttoncontrol name="button_convert">
+        <frame>
+          <name>buttonup</name>
+        </frame>
+        <bounds>125,110,100,30</bounds>
+        <tooltip textres="linker_button_convert_Tooltip" />
+        <state textres="linker_button_convert_ButtonCaption" />
+        <stateframe>
+          <pressed name="buttonup" offset="-1,-1,-1,-1" nobaseframe="true" />
+        </stateframe>
+        <font>button-white</font>
+        <script>
+
+function onButtonPress()
+	local msg = {
+		text=window.linkName.getValue(),
+		shortcuts={
+			{ description=window.linkName.getValue(), class="url", recordname=window.linkText.getValue() }
+		}
+	}	
+	Comm.addChatMessage(msg);    
+end
+
+</script>
+      </buttoncontrol>
+      <stringfield name="linkName">
+        <bounds>10,50,330,20</bounds>
+        <empty textres="linker_linkName_EmptyText" />
+        <lineoffset default="on">2</lineoffset>
+      </stringfield>
+    </sheetdata>
+  </windowclass>
+</root>

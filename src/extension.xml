@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root version="3.0">
+  <announcement text="Linker v1.3" />
+  <properties>
+    <name>Linker</name>
+    <version>1.3</version>
+    <author>mattekure</author>
+    <description>Adds a window to create links for URLs or to files</description>
+  </properties>
+  <base>
+    <includefile source="linker.xml" />
+    <script name="LinkerManager" file="LinkerManager.lua" />
+    <icon name="linker_button_icon_down" file="linker_button_down.png" />
+    <icon name="linker_button_icon_up" file="linker_button_up.png" />
+    <includefile source="strings_Linker.xml" />
+    <script name="RulesetWizardDiceRoller" file="rulesetwizard/RulesetWizardDiceRoller.lua" />
+    <script name="RulesetWizard" file="rulesetwizard/RulesetWizard.lua" />
+    <includefile source="rulesetwizard/rswcombobox.xml" />
+  </base>
+</root>
