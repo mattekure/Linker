@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root version="3.0">
     <announcement>
-        <text>Linker v1.4\rCreated by mattekure</text>
+        <text>Linker v1.5 TEST\rCreated by mattekure</text>
         <font>systemfont</font>
         <icon>Mattekure_Logo</icon>
     </announcement>
     <properties>
         <name>Feature: Linker</name>
-        <version>1.4</version>
+        <version>1.5</version>
         <author>mattekure</author>
         <description>Adds a window to create links for URLs or to files</description>
     </properties>
     <base>
-        <icon name="Mattekure_Logo" file="Mattekure_Logo.png" />
-        <icon name="linker_button" file="crossed-chains.png" />
-        <includefile source="linker.xml" />
-        <script name="LinkerManager" file="manager_linker.lua" />
+        <icon file="graphics/Mattekure_Logo.png" name="Mattekure_Logo"/>
+        <icon file="graphics/crossed-chains.png" name="linker_button"/>
+        <includefile source="utility/linker.xml"/>
+        <script file="scripts/manager_linker.lua" name="LinkerManager"/>
         <string name="linker_window_title">Linker</string>
     </base>
 </root>
