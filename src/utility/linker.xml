@@ -36,6 +36,7 @@
 					function onButtonPress()
 						window.headerFile.setVisible(false)
 						window.headerURL.setVisible(true)
+						window.linkURL.setValue("")
 					end
 				</script>
             </button_text_sm>
