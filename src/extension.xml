@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root version="3.0">
     <announcement>
-        <text>Linker v1.5 TEST\rCreated by mattekure</text>
+        <text>Linker v1.5\rCreated by mattekure 2025-01-26</text>
         <font>systemfont</font>
         <icon>Mattekure_Logo</icon>
     </announcement>
@@ -17,5 +17,7 @@
         <includefile source="utility/linker.xml"/>
         <script file="scripts/manager_linker.lua" name="LinkerManager"/>
         <string name="linker_window_title">Linker</string>
+        <string name="linker_label_file">File</string>
+        <string name="linker_label_url">URL</string>
     </base>
 </root>

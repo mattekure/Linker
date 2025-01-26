@@ -3,55 +3,92 @@
     <windowclass name="linker">
         <frame>utilitybox</frame>
         <sizelimits>
-            <minimum width="350" height="240" />
-            <dynamic />
+            <minimum height="300" width="350"/>
+            <dynamic/>
         </sizelimits>
         <sheetdata>
-            <windowtitlebar_utilitybox name="title" />
-            <windowmenubar_utilitybox name="menubar" />
-            <resize_utilitybox />
-            <anchor_content_utilitybox_top />
-            <anchor_content_utilitybox_bottom />
+            <windowtitlebar_utilitybox name="title"/>
+            <windowmenubar_utilitybox name="menubar"/>
+            <anchor_content_utilitybox_top/>
+            <anchor_content_utilitybox_bottom/>
             <sub_content_framed_groupbox name="sub_linker">
                 <class>sub_linker</class>
             </sub_content_framed_groupbox>
-       </sheetdata>
+            <resize_utilitybox/>
+        </sheetdata>
     </windowclass>
     <windowclass name="sub_linker">
+        <script>
+			function onInit()
+				headerFile.setVisible(false)
+			end
+		</script>
         <sheetdata>
-            <anchor_content_top />
-            <anchor_content_bottom />
-
-             <stringc_content_noframe_static_top name="headerName">
-                <static text="Link Title" />
-                <center />
-             </stringc_content_noframe_static_top>
-            <stringc_content_top name="linkName" />
-            
-            <stringc_content_noframe_static_top name="headerURL">
-                <static text="Link URL" />
-                <center />
-            </stringc_content_noframe_static_top>
-            <stringc_content_top name="linkURL" />
-
+            <anchor_content_top/>
+            <anchor_content_bottom/>
+            <button_text_sm>
+                <anchored to="contentanchor" width="50">
+                    <top offset="10" postoffset="10" relation="relative"/>
+                    <left offset="20"/>
+                </anchored>
+                <text>URL</text>
+                <script>
+					function onButtonPress()
+						window.headerFile.setVisible(false)
+						window.headerURL.setVisible(true)
+					end
+				</script>
+            </button_text_sm>
+            <button_text_sm>
+                <anchored too="contentanchor" width="50">
+                    <top offset="10" postoffset="10"/>
+                    <left offset="80"/>
+                </anchored>
+                <text>FILE</text>
+                <script>
+					function onButtonPress()
+						window.headerFile.setVisible(true)
+						window.headerURL.setVisible(false)
+						window.linkURL.setValue(File.getDataFolder())
+					end
+				</script>
+            </button_text_sm>
+            <string_content_noframe_static_top name="headerName">
+                <static text="Link Title"/>
+                <center/>
+            </string_content_noframe_static_top>
+            <string_content_top name="linkName"/>
+            <string_content_noframe_static_top name="headerURL">
+                <static text="Link URL"/>
+                <center/>
+            </string_content_noframe_static_top>
+            <string_content_noframe_static_top name="headerFile">
+                <static text="File Path"/>
+                <center/>
+            </string_content_noframe_static_top>
+            <string_content_top name="linkURL"/>
             <button_text_content_center_top name="genLink">
                 <text>Create Link</text>
                 <script>
-                    function onButtonPress()
-                        local msg = {
-                            text=window.linkName.getValue(),
-                            shortcuts = { 
-                                {
-                                    description=window.linkName.getValue(),
-                                    class="url",
-                                    recordname=window.linkURL.getValue()
-                                }
-                            }
-                        }
-                        Comm.addChatMessage(msg);
-                    end
-                </script>
+					function onButtonPress()
+						local bFile = window.headerFile.isVisible()
+						local tURL = LinkerManager.formatURL(bFile, window.linkURL.getValue())
+						window.link.setValue("url", tURL)
+						local msg = {
+							text="Link Created: " .. window.linkName.getValue(),
+						}
+						Comm.addChatMessage(msg);
+					end
+				</script>
             </button_text_content_center_top>
+            <linkcontrol_static>
+                <anchored height="20" offset="10,5" to="contentanchor" width="20">
+                    <top offset="10" relation="relative"/>
+                    <left/>
+                </anchored>
+                <description control="linkName"/>
+                <class>url</class>
+            </linkcontrol_static>
         </sheetdata>
     </windowclass>
 </root>
