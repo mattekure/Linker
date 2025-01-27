@@ -21,6 +21,9 @@
         <script>
 			function onInit()
 				headerFile.setVisible(false)
+				filePath.setVisible(false)
+				fileName.setVisible(false)
+
 			end
 		</script>
         <sheetdata>
@@ -36,7 +39,10 @@
 					function onButtonPress()
 						window.headerFile.setVisible(false)
 						window.headerURL.setVisible(true)
+						window.filePath.setVisible(false)
+						window.filePath.setValue("")
 						window.linkURL.setValue("")
+						window.fileName.setVisible(false)
 					end
 				</script>
             </button_text_sm>
@@ -50,7 +56,10 @@
 					function onButtonPress()
 						window.headerFile.setVisible(true)
 						window.headerURL.setVisible(false)
-						window.linkURL.setValue(File.getDataFolder())
+						window.filePath.setVisible(true)
+						window.linkURL.setValue("")
+						window.filePath.setValue(File.getDataFolder().."linker/")
+						window.fileName.setVisible(true)
 					end
 				</script>
             </button_text_sm>
@@ -67,16 +76,30 @@
                 <static text="File Path"/>
                 <center/>
             </string_content_noframe_static_top>
+            <string_content_noframe_static_top name="filePath">
+                <center/>
+            </string_content_noframe_static_top>
+            <string_content_noframe_static_top name="fileName">
+                <static text="File Name"/>
+                <center/>
+            </string_content_noframe_static_top>
             <string_content_top name="linkURL"/>
             <button_text_content_center_top name="genLink">
                 <text>Create Link</text>
                 <script>
 					function onButtonPress()
 						local bFile = window.headerFile.isVisible()
-						local tURL = LinkerManager.formatURL(bFile, window.linkURL.getValue())
-						window.link.setValue("url", tURL)
+						local sURL = LinkerManager.formatURL(bFile, window.filePath.getValue(), window.linkURL.getValue())
+						window.link.setValue("url", sURL)
 						local msg = {
 							text="Link Created: " .. window.linkName.getValue(),
+							shortcuts = {
+								{
+									description=window.linkName.getValue(),
+									class="url",
+									recordname=sURL,
+								}
+							}
 						}
 						Comm.addChatMessage(msg);
 					end

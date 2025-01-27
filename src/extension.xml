@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root version="3.0">
     <announcement>
-        <text>Linker v1.6\rCreated by mattekure 2025-01-26</text>
+        <text>Linker v1.7\rCreated by mattekure 2025-01-27</text>
         <font>systemfont</font>
         <icon>Mattekure_Logo</icon>
     </announcement>
     <properties>
         <name>Feature: Linker</name>
-        <version>1.6</version>
+        <version>1.7</version>
         <author>mattekure</author>
         <description>Adds a window to create links for URLs or to files</description>
     </properties>

@@ -9,14 +9,15 @@ function onTabletopInit()
 	end
 end
 
-function formatURL(bFile, tURL)
+function formatURL(bFile, sFilePath, sURL)
 	if bFile then
-		tURL = string.gsub(tURL, " ", "%%20")
-		if string.sub(tURL, 1, 1) == "/" then
-			tURL = "file://" .. tURL
+		sURL = sFilePath .. sURL
+		sURL = string.gsub(sURL, " ", "%%20")
+		if string.sub(sURL, 1, 1) == "/" then
+			sURL = "file://" .. sURL
 		else
-			tURL = "file:///" .. tURL
+			sURL = "file:///" .. sURL
 		end
 	end
-	return tURL
+	return sURL
 end
